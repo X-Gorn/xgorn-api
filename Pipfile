@@ -1,0 +1,25 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+requests = "*"
+
+[dev-packages]
+pytest = "*"
+setuptools = "*"
+wheel = "*"
+twine = "*"
+tqdm = "*"
+pre-commit = "*"
+commitizen = "*"
+toml = "*"
+
+[requires]
+python_version = "3.9"
+
+[scripts]
+test = "pytest"
+build = "python3 setup.py sdist bdist_wheel"
+deploy = "twine upload dist/*"

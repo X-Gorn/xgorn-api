@@ -2,3 +2,4 @@
 build/*
 dist/*
 xgorn_api.egg-info/*
+test.py

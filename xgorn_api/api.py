@@ -26,6 +26,10 @@ from requests import get, post
 class NoidAPI:
     
     def __init__(self) -> None:
+        self.bypass = Bypass(self)
+        self.scrape = Scrape(self)
+        self.translate = Translate(self)
+        self.music = Music(self)
         self.api_key = 'api-key'
         self.base_url = 'https://api.xgorn.pp.ua'
     
@@ -40,59 +44,79 @@ class NoidAPI:
         else:
             return {'error': True, 'message': 'Invalid method'}
     
-    def ouo_bypass(self, url: str) -> dict:
-        return self.make_request('get', '/ouo_bypass', url=url)
+class Bypass:
     
-    def mirrored_bypass(self, url: str, host: str) -> dict:
-        return self.make_request('get', '/mirrored_bypass', url=url, host=host)
+    def __init__(self, api):
+        self.api = api
     
-    def tiktok_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/tiktok_scrape', url=url)
+    def ouo(self, url: str) -> dict:
+        return self.api.make_request('get', '/bypass/ouo', url=url)
     
-    def facebook_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/facebook_scrape', url=url)
-    
-    def instagram_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/instagram_scrape', url=url)
-    
-    def instagram_scrapev2(self, url: str) -> dict:
-        return self.make_request('get', '/instagram_scrapev2', url=url)
+    def mirrored(self, url: str, host: str) -> dict:
+        return self.api.make_request('get', '/bypass/mirrored', url=url, host=host)
 
-    def twitter_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/twitter_scrape', url=url)
+class Scrape:
     
-    def twitter_scrapev2(self, url: str) -> dict:
-        return self.make_request('get', '/twitter_scrapev2', url=url)
+    def __init__(self, api):
+        self.api = api
     
-    def likee_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/likee_scrape', url=url)
+    def tiktok(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/tiktok', url=url)
     
-    def pinterest_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/pinterest_scrape', url=url)
+    def facebook(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/facebook', url=url)
     
-    def pinterest_scrapev2(self, url: str) -> dict:
-        return self.make_request('get', '/pinterest_scrapev2', url=url)
+    def instagram(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/instagram', url=url)
     
-    def terabox_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/terabox_scrape', url=url)
+    def instagramv2(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/instagramv2', url=url)
+
+    def twitter(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/twitter', url=url)
     
-    def gofile_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/gofile_scrape', url=url)
+    def twitterv2(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/twitterv2', url=url)
     
-    def krakenfiles_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/krakenfiles_scrape', url=url)
+    def likee(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/likee', url=url)
     
-    def yifysubtitles_scrape(self, imdb_id: str, lang: str) -> dict:
-        return self.make_request('get', '/yifysubtitles_scrape', imdb_id=imdb_id, lang=lang)
+    def pinterest(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/pinterest', url=url)
     
-    def filelions_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/filelions_scrape', url=url)
+    def pinterestv2(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/pinterestv2', url=url)
     
-    def streamwish_scrape(self, url: str) -> dict:
-        return self.make_request('get', '/streamwish_scrape', url=url)
+    def terabox(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/terabox', url=url)
     
-    def srt_translate(self, url: str, source_lang: str, dest_lang: str) -> dict:
-        return self.make_request('get', '/srt_translate', url=url, source_lang=source_lang, dest_lang=dest_lang)
+    def gofile(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/gofile', url=url)
     
-    def shazam_music_find(self, url: str, type_: str) -> dict:
-        return self.make_request('get', '/shazam_music_find', url=url, type=type_)
+    def krakenfiles(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/krakenfiles', url=url)
+    
+    def yifysubtitles(self, imdb_id: str, lang: str) -> dict:
+        return self.api.make_request('get', '/scrape/yifysubtitles', imdb_id=imdb_id, lang=lang)
+    
+    def filelions(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/filelions', url=url)
+    
+    def streamwish(self, url: str) -> dict:
+        return self.api.make_request('get', '/scrape/streamwish', url=url)
+
+class Translate:
+    
+    def __init__(self, api):
+        self.api = api
+    
+    def srt(self, url: str, source_lang: str, dest_lang: str) -> dict:
+        return self.api.make_request('get', '/translate/srt', url=url, source_lang=source_lang, dest_lang=dest_lang)
+
+class Music:
+    
+    def __init__(self, api):
+        self.api = api
+    
+    def shazam(self, url: str, type_: str) -> dict:
+        return self.api.make_request('get', '/music/shazam', url=url, type=type_)

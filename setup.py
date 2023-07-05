@@ -30,6 +30,7 @@ with open('xgorn_api/__init__.py', encoding='utf-8') as f:
 
 with open('xgorn_api/api.py', encoding='utf-8') as f:
     base_url = re.findall(r'self\.base_url = \'(.+)\'', f.read())[0]
+    base_url_ = base_url.replace("https://", "")
 
 
 with open('README.md', encoding='utf-8') as f:
@@ -39,10 +40,10 @@ with open('README.md', encoding='utf-8') as f:
 setup(
     name='xgorn-api',
     version=version,
-    description=f'API Interface for {base_url}',
+    description=f'API Interface for {base_url_}',
     long_description=readme,
     long_description_content_type='text/markdown',
-    url='https://github.com/api-xgorn-docs',
+    url='https://github.com/X-Gorn/xgorn-api',
     author='xgorn',
     license='MIT',
     classifiers=[
@@ -60,7 +61,7 @@ setup(
         'Programming Language :: Python :: 3.11',
         'Topic :: Internet',
         'Topic :: Software Development :: Libraries',
-        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Software Development :: Libraries :: Python Modules'
     ],
     keywords='api scraper bypasser translator client library python',
     project_urls={
@@ -70,6 +71,6 @@ setup(
     python_requires='~=3.7',
     packages=find_packages(),
     install_requires=[
-        'requests',
+        'requests'
     ],
 )

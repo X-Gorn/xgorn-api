@@ -5,6 +5,7 @@ jobs:
   build-and-publish:
     name: Build and publish xgorn-api to PyPI
     runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'Update xgorn-api')
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2

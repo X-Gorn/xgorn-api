@@ -24,7 +24,7 @@ api.scrape.instagram('https://www.instagram.com/reel/CqcUdr-ppgT/?igshid=YmMyMTA
 For example: `api.xgorn.eu.org`
 
 ```python
-api.base_url = 'api.xgorn.eu.org'
+api.base_url = 'https://api.xgorn.eu.org'
 ```
 
 ##### Making custom request.

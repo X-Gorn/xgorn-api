@@ -25,5 +25,5 @@ class Translate:
     def __init__(self, api):
         self.api = api
     
-    def srt(self, url: str, source_lang: str, dest_lang: str) -> dict:
-        return self.api.make_request('get', '/translate/srt', url=url, source_lang=source_lang, dest_lang=dest_lang)
+    def srt(self, file: str, source_lang: str, dest_lang: str) -> dict:
+        return self.api.make_request('post', '/translate/srt', file=file, source_lang=source_lang, dest_lang=dest_lang)

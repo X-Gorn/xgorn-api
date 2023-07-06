@@ -41,6 +41,10 @@ class NoidAPI:
         if method == 'get':
             return get(self.base_url+endpoint, params=kwargs).json()
         elif method == 'post':
-            return post(self.base_url+endpoint, data=kwargs).json()
+            files = {}
+            if kwargs.get('file'):
+                files['file'] = open(kwargs['file'], 'rb')
+                del kwargs['file']
+            return post(self.base_url+endpoint, data=kwargs, files=files).json()
         else:
             return {'error': True, 'message': 'Invalid method'}

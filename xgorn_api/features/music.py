@@ -25,5 +25,5 @@ class Music:
     def __init__(self, api):
         self.api = api
     
-    def shazam(self, url: str, type_: str) -> dict:
-        return self.api.make_request('get', '/music/shazam', url=url, type=type_)
+    def shazam(self, file: str, type_: str) -> dict:
+        return self.api.make_request('post', '/music/shazam', file=file, type=type_)

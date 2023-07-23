@@ -27,3 +27,6 @@ class Translate:
     
     def srt(self, file: str, source_lang: str, dest_lang: str) -> dict:
         return self.api.make_request('post', '/translate/srt', file=file, source_lang=source_lang, dest_lang=dest_lang)
+    
+    def html(self, html_text: str, lang: str) -> dict:
+        return self.api.make_request('post', '/translate/html', html_text=html_text, lang=lang)

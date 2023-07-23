@@ -26,46 +26,55 @@ class Scrape:
         self.api = api
     
     def tiktok(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/tiktok', url=url)
+        return self.api.make_request('post', '/scrape/tiktok', url=url)
     
     def facebook(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/facebook', url=url)
+        return self.api.make_request('post', '/scrape/facebook', url=url)
     
     def instagram(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/instagram', url=url)
+        return self.api.make_request('post', '/scrape/instagram', url=url)
     
     def instagramv2(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/instagramv2', url=url)
+        return self.api.make_request('post', '/scrape/instagramv2', url=url)
 
     def twitter(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/twitter', url=url)
+        return self.api.make_request('post', '/scrape/twitter', url=url)
     
     def twitterv2(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/twitterv2', url=url)
+        return self.api.make_request('post', '/scrape/twitterv2', url=url)
     
     def likee(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/likee', url=url)
+        return self.api.make_request('post', '/scrape/likee', url=url)
     
     def pinterest(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/pinterest', url=url)
+        return self.api.make_request('post', '/scrape/pinterest', url=url)
     
     def pinterestv2(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/pinterestv2', url=url)
+        return self.api.make_request('post', '/scrape/pinterestv2', url=url)
     
     def terabox(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/terabox', url=url)
+        return self.api.make_request('post', '/scrape/terabox', url=url)
     
     def gofile(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/gofile', url=url)
+        return self.api.make_request('post', '/scrape/gofile', url=url)
     
     def krakenfiles(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/krakenfiles', url=url)
+        return self.api.make_request('post', '/scrape/krakenfiles', url=url)
     
     def yifysubtitles(self, imdb_id: str, lang: str) -> dict:
-        return self.api.make_request('get', '/scrape/yifysubtitles', imdb_id=imdb_id, lang=lang)
+        return self.api.make_request('post', '/scrape/yifysubtitles', imdb_id=imdb_id, lang=lang)
     
     def filelions(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/filelions', url=url)
+        return self.api.make_request('post', '/scrape/filelions', url=url)
     
     def streamwish(self, url: str) -> dict:
-        return self.api.make_request('get', '/scrape/streamwish', url=url)
+        return self.api.make_request('post', '/scrape/streamwish', url=url)
+
+    def icons8(self, url: str) -> dict:
+        return self.api.make_request('post', '/scrape/icons8', url=url)
+    
+    def readlightnovel(self, title: str) -> dict:
+        return self.api.make_request('post', '/scrape/readlightnovel', title=title)
+    
+    def reddit(self, url: str) -> dict:
+        return self.api.make_request('post', '/scrape/reddit', url=url)

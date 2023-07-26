@@ -24,3 +24,4 @@ from .bypass import Bypass
 from .scrape import Scrape
 from .translate import Translate
 from .music import Music
+from .ai import Ai

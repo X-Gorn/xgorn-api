@@ -26,7 +26,7 @@ class Bypass:
         self.api = api
     
     def ouo(self, url: str) -> dict:
-        return self.api.make_request('get', '/bypass/ouo', url=url)
+        return self.api.make_request('post', '/bypass/ouo', url=url)
     
     def mirrored(self, url: str, host: str) -> dict:
-        return self.api.make_request('get', '/bypass/mirrored', url=url, host=host)
+        return self.api.make_request('post', '/bypass/mirrored', url=url, host=host)

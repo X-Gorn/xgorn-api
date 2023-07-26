@@ -20,32 +20,10 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-from requests import get, post
-from .features import Bypass, Scrape, Translate, Music, Ai
-
-
-class NoidAPI:
+class Ai:
     
-    def __init__(self) -> None:
-        self.bypass = Bypass(self)
-        self.scrape = Scrape(self)
-        self.translate = Translate(self)
-        self.music = Music(self)
-        self.ai = Ai(self)
-        self.api_key = 'api-key'
-        self.base_url = 'https://api.xgorn.pp.ua'
+    def __init__(self, api):
+        self.api = api
     
-    def make_request(self, method: str, endpoint: str, **kwargs) -> dict:
-        kwargs['api_key'] = self.api_key
-        if self.api_key == 'api-key':
-            return {'error': True, 'message': 'Invalid API key'}
-        if method == 'get':
-            return get(self.base_url+endpoint, params=kwargs).json()
-        elif method == 'post':
-            files = {}
-            if kwargs.get('file'):
-                files['file'] = open(kwargs['file'], 'rb')
-                del kwargs['file']
-            return post(self.base_url+endpoint, data=kwargs, files=files).json()
-        else:
-            return {'error': True, 'message': 'Invalid method'}
+    def silmin(self, prompt: str, sampler: str, gender: str, model: str, nsfw: bool) -> dict:
+        return self.api.make_request('post', '/ai/silmin', prompt=prompt, sampler=sampler, gender=gender, model=model, nsfw=nsfw)

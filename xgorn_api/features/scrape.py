@@ -28,6 +28,9 @@ class Scrape:
     def tiktok(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/tiktok', url=url)
     
+    def tiktokv2(self, url: str) -> dict:
+        return self.api.make_request('post', '/scrape/tiktokv2', url=url)
+    
     def facebook(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/facebook', url=url)
     
@@ -78,3 +81,6 @@ class Scrape:
     
     def reddit(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/reddit', url=url)
+    
+    def proxy(self, type: str) -> dict:
+        return self.api.make_request('post', '/scrape/proxy', type=type)

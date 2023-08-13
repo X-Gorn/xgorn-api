@@ -32,19 +32,22 @@ class Scrape:
         return self.api.make_request('post', '/scrape/tiktokv2', url=url)
     
     def facebook(self, url: str) -> dict:
-        return self.api.make_request('post', '/scrape/facebook', url=url)
+        """
+        Deprecated in v1.0.4
+        """
+        return self.api.make_request('post', '/scrape/facebook', url=url, deprecated=True)
     
     def instagram(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/instagram', url=url)
     
     def instagramv2(self, url: str) -> dict:
-        return self.api.make_request('post', '/scrape/instagramv2', url=url)
+        """
+        Deprecated in v1.0.4
+        """
+        return self.api.make_request('post', '/scrape/instagramv2', url=url, deprecated=True)
 
     def twitter(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/twitter', url=url)
-    
-    def twitterv2(self, url: str) -> dict:
-        return self.api.make_request('post', '/scrape/twitterv2', url=url)
     
     def likee(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/likee', url=url)
@@ -56,7 +59,10 @@ class Scrape:
         return self.api.make_request('post', '/scrape/pinterestv2', url=url)
     
     def terabox(self, url: str) -> dict:
-        return self.api.make_request('post', '/scrape/terabox', url=url)
+        """
+        Deprecated in v1.0.4
+        """
+        return self.api.make_request('post', '/scrape/terabox', url=url, deprecated=True)
     
     def gofile(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/gofile', url=url)
@@ -76,8 +82,8 @@ class Scrape:
     def icons8(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/icons8', url=url)
     
-    def readlightnovel(self, title: str) -> dict:
-        return self.api.make_request('post', '/scrape/readlightnovel', title=title)
+    def novelupdates(self, title: str) -> dict:
+        return self.api.make_request('post', '/scrape/novelupdates', title=title)
     
     def reddit(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/reddit', url=url)

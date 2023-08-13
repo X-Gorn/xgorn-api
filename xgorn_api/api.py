@@ -37,6 +37,8 @@ class NoidAPI:
     
     def make_request(self, method: str, endpoint: str, **kwargs) -> dict:
         kwargs['api_key'] = self.api_key
+        if kwargs.get('deprecated'):
+            return {'error': True, 'message': 'This endpoint is already deprecated'}
         if self.api_key == 'api-key':
             return {'error': True, 'message': 'Invalid API key'}
         if method == 'get':

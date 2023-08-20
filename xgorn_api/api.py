@@ -21,7 +21,7 @@
 #  SOFTWARE.
 
 from requests import get, post
-from .features import Bypass, Scrape, Translate, Music, Ai
+from .features import Bypass, Scrape, Translate, Music, Ai, Encode, Decode
 
 
 class NoidAPI:
@@ -32,6 +32,8 @@ class NoidAPI:
         self.translate = Translate(self)
         self.music = Music(self)
         self.ai = Ai(self)
+        self.encode = Encode(self)
+        self.decode = Decode(self)
         self.api_key = 'api-key'
         self.base_url = 'https://api.xgorn.pp.ua'
     

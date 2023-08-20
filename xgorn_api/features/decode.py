@@ -20,10 +20,10 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-from .bypass import Bypass
-from .scrape import Scrape
-from .translate import Translate
-from .music import Music
-from .ai import Ai
-from .encode import Encode
-from .decode import Decode
+class Decode:
+    
+    def __init__(self, api):
+        self.api = api
+    
+    def base64(self, string: str) -> dict:
+        return self.api.make_request('post', '/decode/base64', string=string)

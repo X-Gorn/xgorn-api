@@ -83,10 +83,16 @@ class Scrape:
         return self.api.make_request('post', '/scrape/icons8', url=url)
     
     def novelupdates(self, title: str) -> dict:
-        return self.api.make_request('post', '/scrape/novelupdates', title=title)
+        """
+        Deprecated in v1.0.7
+        """
+        return self.api.make_request('post', '/scrape/novelupdates', title=title, deprecated=True)
     
     def reddit(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/reddit', url=url)
     
     def proxy(self, type: str) -> dict:
         return self.api.make_request('post', '/scrape/proxy', type=type)
+    
+    def voe(self, url: str) -> dict:
+        return self.api.make_request('post', '/scrape/voe', url=url)

@@ -59,10 +59,7 @@ class Scrape:
         return self.api.make_request('post', '/scrape/pinterestv2', url=url)
     
     def terabox(self, url: str) -> dict:
-        """
-        Deprecated in v1.0.4
-        """
-        return self.api.make_request('post', '/scrape/terabox', url=url, deprecated=True)
+        return self.api.make_request('post', '/scrape/terabox', url=url)
     
     def gofile(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/gofile', url=url)
@@ -96,3 +93,9 @@ class Scrape:
     
     def voe(self, url: str) -> dict:
         return self.api.make_request('post', '/scrape/voe', url=url)
+    
+    def streamtape(self, url: str) -> dict:
+        return self.api.make_request('post', '/scrape/streamtape', url=url)
+
+    def doodstream(self, url: str) -> dict:
+        return self.api.make_request('post', '/scrape/doodstream', url=url)
